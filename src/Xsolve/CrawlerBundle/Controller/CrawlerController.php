@@ -11,10 +11,24 @@ class CrawlerController extends Controller
     
     public function indexAction()
     {
-        $keyword = $this->getRequest()->get('keyword', null);
-        $feedData = $this->getRSSFeedData($keyword);
+//        $form = $this->createForm(new \Xsolve\CrawlerBundle\Form\FeedEnquiry(), array());
+        $defaultData = array('message' => null);
+        $form = $this->createFormBuilder($defaultData)
+            ->add('keyword', 'text')
+            ->getForm();
+        $keyword = null;
         
+        $request = $this->getRequest();
+        if($request->isMethod('POST'))
+        { 
+            $form->bindRequest($request);
+            $data = $form->getData();
+            $keyword = $data['keyword'];
+        }
+        
+        $feedData = $this->getRSSFeedData($keyword);
         $this->viewData['feed'] = $feedData;
+        $this->viewData['form'] = $form->createView();
         return $this->render('XsolveCrawlerBundle:Crawler:index.html.twig', $this->viewData);
     }
     
@@ -85,6 +99,7 @@ class CrawlerController extends Controller
         $result = false;
         if(is_string($keyword))
         {
+            $keyword = trim($keyword);
             $pattern = '/^[a-z0-9_\-.:!?;ąćęłńóśźżĄĆĘŁŃÓŚŹŻ\s]*$/is';
             if(preg_match($pattern, $keyword))
             {

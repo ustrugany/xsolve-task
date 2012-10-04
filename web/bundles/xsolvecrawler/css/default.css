@@ -39,3 +39,13 @@ body { line-height: 1;font-family: Arial, Helvetica, sans-serif;font-size: 12px;
 .search-found{
     background-color: red;
 }
+
+#feed_enquiry label{
+    color: #F48A00;
+    font-size: 16px;
+    font-family: 'Irish Grover';
+    display: block;
+}
+#feed_enquiry input{
+    margin: 10px;
+}

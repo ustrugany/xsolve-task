@@ -1,19 +1,18 @@
 <?php
-// src/Blogger/BlogBundle/Form/EnquiryType.php
 namespace Xsolve\CrawlerBundle\Form;
-
+    
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\FormBuilder;
+use Symfony\Component\Form\FormBuilderInterface;
 
 class FeedEnquiry extends AbstractType
 {
-    public function buildForm(FormBuilder $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('keyword');
     }
 
     public function getName()
     {
-        return 'feed-enquiry';
+        return 'feed_enquiry';
     }
 }

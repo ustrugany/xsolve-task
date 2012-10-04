@@ -2,25 +2,34 @@
 
 {% block body %}
     <div class="header">
-        <h1><a href="{{ feed.permalink }}"> {{ feed.title|htmldecode }} </a></h1>
+        <h1><a href="{{ feed.permalink }}"> {{ feed.title|htmldecode|wrapsearch }} </a></h1>
         <p> {{ feed.description|htmldecode }} </p>
     </div>
-    {% for item in feed.items %}
-        <div class="item">
-            <h2><span class="order">{{ loop.index }})&nbsp;</span><a href="{{ item.get_permalink() }}">{{ item.get_title() }}</a></h2>
-            {% if keyword is defined %}
-                {% set keywordReplacement = '<span class="search-found">' ~ keyword ~ '</span>' %}
-                <p>{{ item.get_description()|htmldecode|replace({ (keyword) : keywordReplacement})|raw  }}</p>
-            {% endif %}
-
-            {% if keyword is not defined %}
-                <p>{{ item.get_description()|htmldecode  }}</p>
-            {% endif %}
-            <p><small>Posted on {{ item.get_date('j F Y | g:i a') }}</small></p>
-        </div>
-    {% endfor %}
+    {% if feed.items| length == 0 %}
+        <p>Brak wyników</p>
+    {% else %}
+        {% for item in feed.items %}
+            <div class="item">
+                <h2><span class="order">{{ loop.index }})&nbsp;</span><a href="{{ item.get_permalink() }}">{{ item.get_title() }}</a></h2>
+                {% if keyword is defined %}
+                    {% set keywordReplacement = '<span class="search-found">' ~ keyword ~ '</span>' %}
+                    <p>{{ item.get_description()|htmldecode|wrapsearch(keyword)|raw  }}</p>
+                {% else %}
+                    <p>{{ item.get_description()|htmldecode  }}</p>
+                {% endif %}
+                <p><small>Opublikowane {{ item.get_date('Y-m-d | H:i:s') }}</small></p>
+            </div>
+        {% endfor %}
+    {% endif %}
 {% endblock %}
 
 {% block sidebar %}
-FORMULARZ
+    <form action="{{ path('xsolve_crawler_homepage') }}" method="POST" id="feed_enquiry">
+        {{ form_errors(form) }}
+
+        {{ form_row(form.keyword, { 'label': 'Słowo kluczowe' }) }}
+
+        {{ form_rest(form) }}
+        <input type="submit" value="Wyślij" class="symfony-button-grey" />
+    </form>
 {% endblock %}
