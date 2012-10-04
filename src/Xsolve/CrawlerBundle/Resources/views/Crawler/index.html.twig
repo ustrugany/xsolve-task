@@ -1,0 +1,15 @@
+{% extends 'XsolveCrawlerBundle::layout.html.twig' %}
+
+{% block body %}
+    <div class="header">
+        <h1><a href="{{ feed.get_permalink() }}"> {{ feed.get_title()|htmldecode }} </a></h1>
+        <p> {{ feed.get_description()|htmldecode }} </p>
+    </div>
+    {% for item in feed.get_items() %}
+        <div class="item">
+            <h2><span class="order">{{ loop.index }})&nbsp;</span><a href="{{ item.get_permalink() }}">{{ item.get_title() }}</a></h2>
+            <p>{{ item.get_description()|htmldecode  }}</p>
+            <p><small>Posted on {{ item.get_date('j F Y | g:i a') }}</small></p>
+        </div>
+    {% endfor %}
+{% endblock %}

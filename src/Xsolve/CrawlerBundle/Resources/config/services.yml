@@ -1,0 +1,11 @@
+#parameters:
+#   xsolve_crawler.htmldecode: Xsolve\CrawlerBundle\Twig\Extension\DecodeExtension
+
+services:
+ #   xsolve_crawler.example:
+ #       class: %xsolve_crawler.example.class%
+ #       arguments: [@service_id, "plain_value", %parameter%]
+  xsolve_crawler.htmldecode:
+        class: Xsolve\CrawlerBundle\Twig\Extension\DecodeExtension
+        tags: 
+        - { name: twig.extension }
