@@ -1,4 +1,7 @@
-Rozwiązanie zadania:
+XSolve - rozwiązanie zadania:
+==============
+
+Treść:
 -------------
 "Stwórz małą aplikację w PHP, która pobierze i wyświetli listę ostatnich wpisów na blogu xlab, 
 które zawierają dane słowo kluczowe w opisie (przeszukiwać tag description z RSS), np. Symfony2. 
@@ -7,9 +10,9 @@ Kod umieść na githubie lub bitbucket."
 
 Technologie:
 -------------
-symfony2
-simplepie: http://www.simplepie.org/
-composer
+- symfony2
+- simplepie: http://www.simplepie.org/
+- composer
 
 Wersja online:
 -------------
