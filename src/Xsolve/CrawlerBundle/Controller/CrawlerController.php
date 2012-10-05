@@ -77,7 +77,10 @@ class CrawlerController extends Controller
         $feed->set_feed_url($this->rssFeedUrl);
         $feed->set_output_encoding('UTF-8');
         $feed->set_input_encoding('UTF-8');
-        $feed->enable_cache(true);
+        // Domyślnie cache rss wlaczony jest w konfiguracji aplikacji
+        // czas przechowywania 60 min
+        //$feed->enable_cache(true);
+        //$feed->set_cache_duration(1800);
         $feed->strip_htmltags();
         $feed->init();
         $feed->handle_content_type();
