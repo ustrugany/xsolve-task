@@ -1,8 +1,5 @@
 /app/cache/*
 /app/logs/*
 /nbproject*
-/README.md
 /.travis.yml
-/UPGRADE.md
-/LICENSE
-/vendor/*
+/vendor
