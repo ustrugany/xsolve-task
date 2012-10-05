@@ -2,6 +2,9 @@
 
 namespace Xsolve\CrawlerBundle\Twig\Extension;
 
+/**
+ * Rozszerzenie dla dodatkowych funkcjonalnosci Twiga
+ */
 class XsolveExtension extends \Twig_Extension
 {
     public function getFilters()
@@ -16,15 +19,22 @@ class XsolveExtension extends \Twig_Extension
         );
     }
 
+    /**
+     * Dekoduje feedy serwowane przez simplepie
+     */
     public function htmldecode($string)
     {
-        return html_entity_decode($string);
+		//var_dump('konwersja:' . mb_convert_encoding($string, 'ISO-8859-2', 'UTF-8'));
+        return html_entity_decode($string, null, "UTF-8");
     }
 
-    public function wrapsearch($string, $search = "XSolve")
+    /**
+     * Opakowuje poszukiwana fraze
+     */
+    public function wrapsearch($string, $search)
     {
-        $pattern = "/{$search}/i";
-        $string = preg_replace($pattern, "<span class=\"search-found\">{$search}</span>", $string);
+        $pattern = "/{$search}/iu";
+        $string = preg_replace($pattern, "<span class=\"search-found\">$0</span>", $string);
         return $string;
     }
 

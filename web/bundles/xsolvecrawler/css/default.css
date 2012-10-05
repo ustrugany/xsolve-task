@@ -20,32 +20,38 @@ body { line-height: 1;font-family: Arial, Helvetica, sans-serif;font-size: 12px;
 .sidebar { width: 239px; padding: 10px; display: inline-block; }
 
 .main-col a { color: #F48A00; }
-
 .main-col h1,
 .main-col h2
     { line-height: 1.2em; font-size: 32px; margin-bottom: 10px; font-weight: normal; color: red; }
 .main-col p { line-height: 1.5em; margin-bottom: 20px; }
+.main-col h1 a{
+    color: red;
+}
 
-#wrapper .header h1{
-    font-size: 38px;
-    text-transform: uppercase;
+#wrapper .header h1 a{
+	color: red;
+	font-size: 40px;
+	text-transform: uppercase;
 }
 #wrapper .header p{
-    font-size: 18px;
-    font-style: italic;
+	font-size: 18px;
+	font-style: italic;
 }
+
+
 #footer { border-top: 1px solid #ccc; clear: both; text-align: center; padding: 10px; color: #aaa; }
 
-.search-found{
-    background-color: red;
+#feed_enquiry label{
+	font-family: 'Irish Grover',cursive;
+	color: #F48A00;
+	font-size: 16px;
+}
+#feed_enquiry input#form_keyword{
+	padding: 5px;
+	margin: 10px;
 }
 
-#feed_enquiry label{
-    color: #F48A00;
-    font-size: 16px;
-    font-family: 'Irish Grover';
-    display: block;
+span.search-found{
+	background-color: red;
 }
-#feed_enquiry input{
-    margin: 10px;
-}
+
