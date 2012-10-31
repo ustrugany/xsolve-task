@@ -1,3 +1,19 @@
+piotr_country_language:
+    resource: "@PiotrCountryLanguageBundle/Resources/config/routing.yml"
+    prefix:   /
+
+piotr_city:
+    resource: "@PiotrCityBundle/Resources/config/routing.yml"
+    prefix:   /
+
+piotr_country:
+    resource: "@PiotrCountryBundle/Resources/config/routing.yml"
+    prefix:   /
+
+piotr_world:
+    resource: "@PiotrWorldBundle/Resources/config/routing.yml"
+    prefix:   /
+
 xsolve_crawler:
     resource: "@XsolveCrawlerBundle/Resources/config/routing.yml"
     prefix:   /

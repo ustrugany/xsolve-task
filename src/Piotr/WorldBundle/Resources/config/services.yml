@@ -1,0 +1,7 @@
+parameters:
+#    piotr_world.example.class: Piotr\WorldBundle\Example
+
+services:
+#    piotr_world.example:
+#        class: %piotr_world.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

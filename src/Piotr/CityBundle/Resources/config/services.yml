@@ -1,0 +1,7 @@
+parameters:
+#    piotr_city.example.class: Piotr\CityBundle\Example
+
+services:
+#    piotr_city.example:
+#        class: %piotr_city.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

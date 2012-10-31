@@ -1,0 +1,7 @@
+parameters:
+#    piotr_country.example.class: Piotr\CountryBundle\Example
+
+services:
+#    piotr_country.example:
+#        class: %piotr_country.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,0 +1,3 @@
+piotr_world_homepage:
+    pattern:  /world/{name}
+    defaults: { _controller: PiotrWorldBundle:World:index }
